@@ -1,0 +1,308 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./index.xhtml">
+
+            <ui:define name="content">
+                <div class="row container" style="width: 100%">
+                    <div class="col-lg-12" style="width: 100%">
+                        <h1>Nueva Solicitud </h1>
+                    </div>
+                    <div class="col-lg-12" style="width: 100%">
+                        <h:form>
+                            <div class="row" style="padding: 20px 20px 20px 20px">
+                                <h:messages style="padding: 20px;" class="text-danger panel"/>                         
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="max-height: 40px">
+                                    Datos del solicitante
+                                </div>    
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel  for="cif">CIF: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="cif" autocomplete="off"  required="true" label="NIT" />
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel  for="dpi">DPI: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="dpi" autocomplete="off"  label="DPI" />
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="nit">NIT: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="nit" autocomplete="off" label="NIT" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="primernombre">Primer Nombre: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="primernombre" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="segundonombre">Segundo Nombre: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="segundonombre" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="tercernombre">Tercer Nombre: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="tercernombre" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="primerapellido">Primer Apellido: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="primerapellido" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="segundoapellido">Segundo Apellido:</h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="segundoapellido" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="apellidocasada">Apellido De Casada: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="apellidocasada" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-8">
+                                            <h:outputLabel for="correoelectronico">Correo Electrónico: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="correoelectronico" autocomplete="off" maxlength="100" value="#{cotizacion.persona.mail}"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <div class="input-group date">
+                                                <h:outputLabel for="fechaingresoasociado">Fecha De Ingreso Como Asociado: * </h:outputLabel>
+                                                <h:inputText class="form-control input-sm pull-right" id="fechaingresoasociado" autocomplete="off"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="genero" value="Genero: *"/>
+                                            <h:selectOneRadio  id="genero" value="a">
+                                                <f:selectItem class="form-control" itemValue="m" itemLabel="&nbsp;&nbsp;Masculino&nbsp;&nbsp;" />
+                                                <f:selectItem class="form-control" itemValue="f" itemLabel="&nbsp;&nbsp;Femenino" />
+                                            </h:selectOneRadio>
+                                        </div>  
+                                        <div class="col-lg-4">
+                                            <div class="input-group date">
+                                                <h:outputLabel for="fechanacimiento">Fecha De Nacimiento: * </h:outputLabel>
+                                                <h:inputText class="form-control input-sm pull-right" id="fechanacimiento" autocomplete="off"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="estadocivil" value="Estado Civil: *"/>
+                                            <h:selectOneRadio  id="estadocivil" value="a">
+                                                <f:selectItem class="form-control"  itemValue="s" itemLabel="&nbsp;&nbsp;Soltero&nbsp;&nbsp;" />
+                                                <f:selectItem class="form-control" itemValue="c" itemLabel="&nbsp;&nbsp;Casado" />
+                                            </h:selectOneRadio>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="nacionalidad">Nacionalidad: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="nacionalidad" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="profecion">Profesión * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="profecion" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="ocupacion">Ocupación: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="ocupacion" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="telefonocelular">Télefono Celular: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="telefonocelular" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="telefonoresidencia">Télefono Residencia:  </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="telefonoresidencia" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="telefonotrabajo">Télefono De Trabajo: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="telefonotrabajo" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="direccionrecidencia">Dirección De Residencia: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="direccionrecidencia" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="tiporesidencia">Tipo De Residencia: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="tiporesidencia" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="tipoalquiler">Tipo De Alquiler:  </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="tipoalquiler" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="ultimaactualizacionive">Fecha De  Última Actualización IVE * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="ultimaactualizacionive" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Datos Del cónyuge
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="cifconyuge">CIF: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="cifconyuge" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="primernombreconyuge">Primer Nombre: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="primernombreconyuge" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="segundonombreconyuge">Segundo Nombre: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="segundonombreconyuge" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="tercernombreconyuge">Tercer Nombre: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="tercernombreconyuge" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="primerapellidoconyuge">Primer Apellido: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="primerapellidoconyuge" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="segundoapellidoconyuge">Segundo Apellido:</h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="segundoapellidoconyuge" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="apellidocasadaconyuge">Apellido De Casada: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="apellidocasadaconyuge" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="ocupacionconyuge">Ocupación: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="ocupacionconyuge" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="empresalaboraconyuge">Empresa Donde Labora: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="empresalaboraconyuge" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="salrioliquidoconyuge">Salario Líquido:  </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="salrioliquidoconyuge" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Información Del Aparato Adquirido
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="tipoaparato">Tipo De Aparato: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="tipoaparato" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="marca">Marca: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="marca" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="estilo">Estilo: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="estilo" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="color">Color: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="color" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="numeroserie">Número de Serie: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="numeroserie" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="precio">Percio: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="precio" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="engache">Enganche: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="engache" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="lugaraparato">Lugar Donde Permanecerá El Aparato: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="lugaraparato" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="nofactura">Número De Factura: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="nofactura" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-8">
+                                            <h:outputLabel for="vendidopor">Vendido Por: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="vendidopor" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Información De Crédito Sombrilla
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="nocreditosombrilla">Número De Crédito Sombrilla: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="nocreditosombrilla" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="saldocreditosombrilla">Saldo Actual Del Crédito Sombrilla: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="saldocreditosombrilla" autocomplete="off"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="porcentajesombrilla">Porcentaje Cancelado: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="porcentajesombrilla" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="fechavencimientocredditosombrilla">Fecha De Vencimiento: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="fechavencimientocredditosombrilla" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="row panel-body">
+                                    <div class="col-lg-2 form-group">
+                                        <h:commandLink class="btn btn-danger form-control" value="ATRAS" immediate="true" actionListener="#{dir.sol_historiasolicitud()}" />
+                                    </div>
+                                    <div class="col-lg-2 form-group">
+                                        <h:commandButton class="btn btn-primary form-control"  immediate="false" value="GUARDAR"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </h:form>    
+                    </div>
+                </div>    
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

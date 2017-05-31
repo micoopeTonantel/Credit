@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <body>
+        <ui:composition template="./index.xhtml">
+            <ui:define name="content">
+                <div class="row container">
+                    <div class="col-lg-12">
+                        <h1>Buscar Cotización</h1>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="panel panel-default" style="height: 365px">
+                            <div class="panel-body">
+                                <h:form class="form-horizontal">
+                                    <div class="form-group">
+                                        <h:outputLabel value="DPI:" for="dpi" class="col-lg-5"/>
+                                        <div class="col-lg-7">
+                                            <h:inputText class="form-control" id="dpi" value="#{persona.dpi}" autocomplete="off" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="NIT:" for="nit" class="col-lg-5"/>
+                                        <div class="col-lg-7">
+                                            <h:inputText class="form-control" id="nit" value="#{persona.nit}" autocomplete="off" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Primer Nombre:" for="primernombre" class="col-lg-5"/>
+                                        <div class="col-lg-7">
+                                            <h:inputText class="form-control" id="primernombre" value="#{persona.primerNombre}" autocomplete="off" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Segundo Nombre:" for="segundonombre" class="col-lg-5"/>
+                                        <div class="col-lg-7">
+                                            <h:inputText class="form-control" id="segundonombre" value="#{persona.segundoNombre}" autocomplete="off" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Primer Apellido:" for="primerapellido" class="col-lg-5"/>
+                                        <div class="col-lg-7">
+                                            <h:inputText class="form-control" id="primerapellido" value="#{persona.primerApellido}" autocomplete="off" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Segundo Apellido:" for="segundopellido" class="col-lg-5"/>
+                                        <div class="col-lg-7">
+                                            <h:inputText class="form-control" id="segundopellido" value="#{persona.segundoApellido}" autocomplete="off" />
+                                        </div>
+                                    </div>
+                                    <h:commandButton  actionListener="#{persona.buscarEnCotizacion()}" type="submit" value="BUSCAR" styleClass="btn btn-primary"></h:commandButton>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="panel panel-default">
+                            <div class="panel-body" style="overflow: auto; height: 365px">
+                                <h:dataTable value="#{persona.personaList}" var="cot" class="table table-bordered" rendered="#{persona.personaList.size() > 0 eq true}">
+                                    <h:column>
+                                        <f:facet name="header">DPI</f:facet>
+                                        #{cot.dpi}
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Nommbre:</f:facet>
+                                        #{cot.nombreCompleto}
+                                    </h:column>
+                                    <h:column>
+                                        <center><h:commandLink rendered="#{cot.estadoCotizacion=='a'}" style="color:green"><i class="fa fa-pencil"></i></h:commandLink></center>
+                                        <center><h:commandLink rendered="#{cot.estadoCotizacion=='b'}" style="color:red;cursor: initial"><i class="fa fa-ban"></i></h:commandLink></center>
+                                    </h:column>
+                                </h:dataTable>
+                                <h:form rendered="#{persona.add}">
+                                    <center><h:commandButton value="NUEVA COTIZACIÓN" class="btn btn-primary" actionListener="#{dir.cot_nuevacotizacion()}"></h:commandButton></center>
+                                </h:form>
+                                <br/>
+                            </div>
+                        </div>     
+                    </div>
+                    <div class="col-lg-1"></div>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+    </body>    
+</html>

@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./index.xhtml">
+
+            <ui:define name="content">
+                <div class="row container" style="width: 100%">
+                    <div class="col-lg-12" style="width: 100%">
+                        <h1>Consultar Solicitudes </h1>
+                    </div>
+                    <div class="col-lg-12" style="width: 100%">
+                        <h:form class="form-inline">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="max-height: 40px">
+                                    Busqueda
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <h:outputLabel for="cif" value="CIF:&nbsp;"/>
+                                        <h:inputText id="cif" class="form-control"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:commandButton class="btn btn-primary" value="CONSULTAR"/>
+                                    </div>
+                                </div>
+                            </div>    
+                        </h:form>
+                    </div>
+                    <div class="col-lg-12" style="width: 100%">
+                        <div class="box box-info" style="height: 210px;width: 160px;float: left;margin: 5px;">
+                            <div class="box-header">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i> Solicitud No.1
+                            </div>
+                            <div class="box-body">
+                                <h5>Fecha : 15/02/2017</h5>
+                                <h5>Monto : 50,000.00</h5>
+                                <h5>Estado: ACTIVA</h5>
+                            </div>
+                            <div class="box-footer">
+                                <h:commandButton style="float: right" class="btn btn-info right" value="MODIFICAR"/>
+                            </div>
+                        </div>
+                        <div class="box box-info" style="height: 210px;width: 160px;float: left;margin: 5px;">
+                            <div class="box-header">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i> Solicitud No.1
+                            </div>
+                            <div class="box-body">
+                                <h5>Fecha : 15/02/2017</h5>
+                                <h5>Monto : 50,000.00</h5>
+                                <h5>Estado: ACTIVA</h5>
+                            </div>
+                            <div class="box-footer">
+                                <h:commandButton style="float: right" class="btn btn-info right" value="MODIFICAR"/>
+                            </div>
+                        </div>
+                        <div class="box box-info" style="height: 210px;width: 160px;float: left;margin: 5px;">
+                            <div class="box-header">
+                                <center>NUEVA  SOLICITUD</center>
+                            </div>
+                            <div class="box-body">
+                                <center>
+                                    <h:form>
+                                        <h:commandLink actionListener="#{dir.sol_nuevasolicitud()}">
+                                            <i class="fa fa-plus-square-o" style="font-size: 90px"></i>
+                                        </h:commandLink>
+                                    </h:form>    
+                                </center>
+                            </div>
+                        </div> 
+                    </div>
+                </div>    
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

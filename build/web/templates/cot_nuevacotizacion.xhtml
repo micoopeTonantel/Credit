@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./index.xhtml">
+
+            <ui:define name="content">
+                <div class="row container" style="width: 100%">
+                    <div class="col-lg-12" style="width: 100%">
+                        <h1>Nueva Cotización</h1>
+                    </div>
+                    <div class="col-lg-12" style="width: 100%">
+                        <h:form>
+                            <div class="row" style="padding: 20px 20px 20px 20px">
+                                <h:messages style="padding: 20px;" class="text-danger panel"/>                         
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="max-height: 40px">
+                                    Datos de la persona
+                                </div>    
+                                <div class="panel-body">    
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel  for="dpi">DPI: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="dpi" autocomplete="off" maxlength="20" value="#{cotizacion.persona.dpi}" required="true" label="DPI">
+                                                <f:ajax event="blur" listener="#{cotizacion.buscarDatos()}" render="@form"/>
+                                            </h:inputText>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="nit">NIT: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="nit" autocomplete="off" maxlength="20" value="#{cotizacion.persona.nit}" label="NIT" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="primernombre">Primer Nombre: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="primernombre" autocomplete="off" maxlength="25" value="#{cotizacion.persona.primerNombre}" required="true" label="Primer Nombre"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="segundonombre">Segundo Nombre: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="segundonombre" autocomplete="off" maxlength="25" value="#{cotizacion.persona.segundoNombre}"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="tercernombre">Tercer Nombre: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="tercernombre" autocomplete="off" maxlength="25" value="#{cotizacion.persona.tercerNombre}"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="primerapellido">Primer Apellido: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="primerapellido" autocomplete="off" maxlength="25" value="#{cotizacion.persona.primerApellido}" required="true" label="Primer Apellido"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="segundoapellido">Segundo Apellido:</h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="segundoapellido" autocomplete="off" maxlength="25" value="#{cotizacion.persona.segundoApellido}"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="apellidocasada">Apellido De Casada: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="apellidocasada" autocomplete="off" maxlength="25" value="#{cotizacion.persona.apellidoCasada}"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-8">
+                                            <h:outputLabel for="correoelectronico">Correo Electrónico: </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="correoelectronico" autocomplete="off" maxlength="100" value="#{cotizacion.persona.mail}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-default">
+                                <div class="panel-heading">
+                                    Ingresos
+                                </div>
+                                <div class="panel panel-body">
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel  for="fuentesingreso">Fuentes de Ingreso: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="fuentesingreso" autocomplete="off" maxlength="150" value="#{cotizacion.ingreso.proveniencia}" required="true" label="Fuentes de Ingreso"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel  for="ocupacion">Descripción de ocupación: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="ocupacion" autocomplete="off" maxlength="150" value="#{cotizacion.ingreso.cargo}" required="true" label="Descripción de ocupación"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel  for="frecuenciaingreso">Frecuencia de ingresos: * </h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="frecuenciaingreso" autocomplete="off" maxlength="45" value="#{cotizacion.ingreso.frecuencia}" required="true" label="Frecuencia de ingresos"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Financiamiento
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="tiposolicitante">Tipo de Solicitante: *</h:outputLabel>
+                                            <h:selectOneMenu id="tiposolicitante" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" value="#{cotizacion.tipoSolicitante.idtiposolicitante}" required="true" label="Tipo de Solicitante">
+                                                <f:selectItem itemValue="" itemLabel=""/>
+                                                <f:selectItems value="#{cotizacion.tipoSolicitanteList}"/>
+                                            </h:selectOneMenu>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="fecuenciapagocapital">Frecuencia De Pago Capital: *</h:outputLabel>
+                                            <h:selectOneMenu id="fecuenciapagocapital" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" value="#{cotizacion.pagoCapital.idpagocapital}" required="true" label="Frecuencia De Pago Capital">
+                                                <f:selectItem itemValue="" itemLabel=""/>
+                                                <f:selectItems value="#{cotizacion.pagoCapitalList}"/> 
+                                            </h:selectOneMenu>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="fecuenciapagointeres">Fecuencia De Pago de Interes: *</h:outputLabel>
+                                            <h:selectOneMenu id="fecuenciapagointeres" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" value="#{cotizacion.pagoInteres.idpagointeres}" required="true" label="Fecuencia De Pago de Interes">
+                                                <f:selectItem itemValue="" itemLabel=""/>
+                                                <f:selectItems value="#{cotizacion.pagoInteresesList}"/>
+                                            </h:selectOneMenu>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="tipocuota">Tipo De Cuota: *</h:outputLabel>
+                                            <h:selectOneMenu id="tipocuota" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" value="#{cotizacion.tipoCuota.idtipocuota}" required="true" label="Tipo De Cuota">
+                                                <f:selectItem itemValue="" itemLabel=""/>
+                                                <f:selectItems value="#{cotizacion.tipoCuotaList}"/>
+                                            </h:selectOneMenu>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="tipocredito">Tipo De Crédito *</h:outputLabel>
+                                            <h:selectOneMenu id="tipocredito" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" value="#{cotizacion.tipoCredito.idtipocredito}" required="true" label="Tipo De Crédito">
+                                                <f:selectItem itemValue="" itemLabel=""/>
+                                                <f:selectItems value="#{cotizacion.tipoCreditoList}"/> 
+                                            </h:selectOneMenu>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="destinocredito">Destino De los Fondos: *</h:outputLabel>
+                                            <h:selectOneMenu id="destinocredito" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" value="#{cotizacion.destinoFondos.iddestinofondo}" required="true" label="Destino De los Fondos">
+                                                <f:selectItem itemValue="" itemLabel=""/>
+                                                <f:selectItems value="#{cotizacion.destinoFondosList}"/>
+                                            </h:selectOneMenu>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="utilidadcredito">Crédito se utilizara Para: *</h:outputLabel>
+                                            <h:selectOneMenu id="utilidadcredito" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" value="#{cotizacion.utilidad.idutilidad}" required="true" label="Crédito se utilizara Para">
+                                                <f:selectItem itemValue="" itemLabel=""/>
+                                                <f:selectItems value="#{cotizacion.utilidadList}"/>
+                                            </h:selectOneMenu>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="monto">Monto Solicitado: *</h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="monto" autocomplete="off" value="#{cotizacion.financiamiento.monto}" required="true" label="Monto Solicitado"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="plazo">Plazo(En Meses): *</h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="plazo" autocomplete="off" value="#{cotizacion.financiamiento.plazo}" required="true" label="Plazo(En Meses)"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="tasa">Tasa: *</h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="tasa" autocomplete="off" value="#{cotizacion.financiamiento.tasa}" required="true" label="Tasa"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="cuotaestimada">Cuota Estimada: *</h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="cuotaestimada" autocomplete="off" value="#{cotizacion.financiamiento.cuotaEstimada}" required="true" label="Cuota Estimada"/>
+                                        </div>
+                                        <div class="form-group col-lg-4">
+                                            <h:outputLabel for="cuotapagar">Cuota A Pagar: *</h:outputLabel>
+                                            <h:inputText class="form-control input-sm" id="cuotapagar" autocomplete="off" value="#{cotizacion.financiamiento.cuotaPagar}" required="true" label="Cuota A Pagar"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-12">
+                                            <h:outputLabel for="usoespecifico">Uso Específico: *</h:outputLabel>
+                                            <h:inputTextarea class="form-control input-sm" id="usoespecifico" value="#{cotizacion.financiamiento.destinoEspecifico}" required="true" label="Uso Específico"/>
+                                        </div>
+                                    </div>
+                                    <h:inputHidden value="#{cotizacion.financiamiento.idfinanciamiento}"/>
+                                    <h:inputHidden value="#{cotizacion.ingreso.idingreso}"/>
+                                    <h:inputHidden value="#{cotizacion.cotizacion.numero}"/>
+                                    <h:commandButton value="GUARDAR" styleClass="btn btn-primary" actionListener="#{cotizacion.crearCotizacion()}"></h:commandButton>
+                                </div>
+                            </div>
+                        </h:form>    
+                    </div>
+                    <h:form>
+                        <h:commandButton value="IMPRIMIR" actionListener="#{imprimirCotizacion.crearPDF()}"></h:commandButton>
+                    </h:form>
+                </div>    
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
